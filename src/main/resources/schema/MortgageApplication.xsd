@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://mymortgageapp.com/mortgageApplications"
+	xmlns:tns="http://mymortgageapp.com/mortgageApplications"
+	elementFormDefault="qualified">
+
+	<xs:element name="GetAllApplicationsRequest">
+		<xs:complexType><xs:sequence></xs:sequence></xs:complexType>
+	</xs:element>
+
+	<xs:element name="GetAllApplicationsResponse">
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element minOccurs="0" name="mortgageApplication" type="tns:MortgageApplication" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="getApplicationRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="mortgageId" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="getApplicationResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="mortgageApplication" type="tns:MortgageApplication" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="CreateOrUpdateApplicationRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="mortgageApplication" type="tns:MortgageApplication" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="CreateOrUpdateApplicationResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="mortgageApplication" type="tns:MortgageApplication" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="MortgageApplication">
+		<xs:sequence>
+			<xs:element name="mortgageId" type="xs:string" />
+			<xs:element name="version" type="xs:string" />
+			<xs:element name="offerId" type="xs:string" />
+			<xs:element name="productId" type="xs:string" />
+			<xs:element name="offerDate" type="xs:string" />
+			<xs:element name="createdDate" type="xs:string" />
+			<xs:element name="offerExpired" type="xs:boolean" />
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
